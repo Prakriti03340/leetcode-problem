@@ -1,0 +1,17 @@
+\\jewels-and-stones
+
+class Solution {
+    public int numJewelsInStones(String jewels, String stones) {
+      HashMap<Character,Integer> set=  new HashMap<>();
+      for(int i=0;i<stones.length();i++){
+        set.put(stones.charAt(i),set.getOrDefault(stones.charAt(i),0)+1);
+      }
+      int s=0;
+      for(int i=0;i<jewels.length();i++){
+        if(set.containsKey(jewels.charAt(i))){
+            s+=set.get(jewels.charAt(i));
+        }
+      }
+      return s;
+    }
+}
