@@ -1,0 +1,23 @@
+link:https: https://leetcode.com/problems/left-and-right-sum-differences/
+problem name:left-and-right-sum-difference
+
+
+class Solution {
+    public int[] leftRightDifference(int[] nums) {
+        int ls[]=new int[nums.length];
+        int rs[]=new int[nums.length];
+        int res[]=new int[nums.length];
+        ls[0]=0;
+        rs[nums.length-1]=0;
+        for(int i=0;i<nums.length-1;i++){
+           ls[i+1]=ls[i]+nums[i];
+        }
+        for(int j=nums.length-1;j>0;j--){
+            rs[j-1]=rs[j]+nums[j];
+        }
+        for(int i=0;i<nums.length;i++){
+            res[i]=Math.abs(ls[i]-rs[i]);
+        }
+        return res;
+    }
+}
